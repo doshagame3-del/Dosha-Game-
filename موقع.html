@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Dosha Game | دوشة جيم - العب أفضل الألعاب أونلاين مجانًا</title>
+<meta name="description" content="Dosha Game - دوشة جيم، موقعك الأول للعب أفضل الألعاب أونلاين مجانًا وبدون تحميل. سيارات، أكشن، ألغاز، رياضة والمزيد.">
+<meta name="keywords" content="ألعاب, لعب, ألعاب كتير, لعبة, أفضل لعب, موقع ألعاب, Dosha Game, لعب دوشة, ألعاب من النت, ألعاب متصفح, ألعاب أونلاين مجانية, ألعاب بدون تحميل, لعبة السيارة, لعبة الموتوسيكلات, لعبة الحرب, لعبة الذكاء, لعبة الألغاز, لعبة الكورة, لعبة البنات, لعبة المطبخ, لعبة المغامرة, لعبة الرعب, لعبة السباق, لعبة الأكشن, لعبة الاستراتيجية, لعبة التلوين, لعبة المزرعة, لعبة الثعبان, لعبة البلياردو, لعبة الشطرنج, لعبة الورق, لعبة الضومنة, لعبة العقل, لعبة التحرير, لعبة الطائرات, لعبة السفن, لعبة القطارات, لعبة الميكانيكي, لعبة الخياطة, لعبة المكياج, لعبة الطبيب, لعبة الشرطة, لعبة الحرامي, لعبة القفز, لعبة الجري, لعبة البناء, لعبة التدمير, لعبة الفضاء, لعبة البوكس, لعبة المصارعة, لعبة الجولف, لعبة التنس, لعبة السلة, لعبة الفواكه, لعبة الكروت, لعبة المتاهة, لعبة التوزين, لعبة الموتور, لعبة الصياد, لعبة الدبابات, لعبة الرمي, لعبة الرماية">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Dosha Game - العب أفضل الألعاب أونلاين مجانًا">
+<meta property="og:description" content="موقع دوشة جيم لتجربة ألعاب متصفح مجانية وبدون تحميل">
+<meta property="og:image" content="https://k.top4top.io/p_38873f1va1.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/jpeg" href="https://k.top4top.io/p_38873f1va1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700;800&family=Tajawal:wght@300;400;500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#05050d;
+  --bg-elevated:#0b0b1a;
+  --panel:rgba(255,255,255,0.04);
+  --panel-border:rgba(255,255,255,0.08);
+  --cyan:#06b6d4;
+  --purple:#a855f7;
+  --magenta:#d946ef;
+  --text:#e7e7f5;
+  --text-dim:#8f8fae;
+  --font-display:'Almarai', sans-serif;
+  --font-body:'Tajawal', sans-serif;
+  --font-mono:'Share Tech Mono', monospace;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(168,85,247,0.16), transparent 45%),
+    radial-gradient(circle at 85% 20%, rgba(6,182,212,0.14), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(217,70,239,0.12), transparent 45%),
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size:100% 100%, 100% 100%, 100% 100%, 42px 42px, 42px 42px;
+  z-index:-1;
+  pointer-events:none;
+}
+::selection{background:var(--magenta);color:#05050d;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:linear-gradient(var(--cyan),var(--purple));border-radius:8px;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+.container{max-width:1280px;margin:0 auto;padding:0 20px;}
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:2px;
+  color:var(--cyan);
+  text-transform:uppercase;
+}
+.hud-chip{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:1px;
+  color:var(--cyan);
+  border:1px solid rgba(6,182,212,0.4);
+  background:rgba(6,182,212,0.08);
+  padding:3px 10px;
+  border-radius:20px;
+  display:inline-block;
+}
+.hud-chip::before{content:"⟨ ";}
+.hud-chip::after{content:" ⟩";}
+
+/* NAVBAR */
+.navbar{
+  position:sticky;top:0;z-index:100;
+  background:rgba(5,5,13,0.75);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--panel-border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:68px;
+}
+.brand{display:flex;align-items:center;gap:12px;}
+.brand img{
+  width:42px;height:42px;border-radius:12px;object-fit:cover;
+  box-shadow:0 0 0 2px rgba(6,182,212,0.5), 0 0 18px rgba(168,85,247,0.55);
+}
+.brand-name{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:20px;
+  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--magenta));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.nav-actions{display:flex;align-items:center;gap:14px;}
+.search-toggle,.menu-toggle{
+  width:42px;height:42px;border-radius:12px;
+  border:1px solid var(--panel-border);
+  background:var(--panel);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .25s ease;
+}
+.search-toggle:hover,.menu-toggle:hover{
+  border-color:var(--cyan);box-shadow:0 0 16px rgba(6,182,212,0.35);
+}
+.menu-toggle span{display:block;width:18px;height:2px;background:var(--text);margin:3px 0;border-radius:2px;}
+
+/* DRAWER */
+.drawer-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);
+  z-index:200;opacity:0;pointer-events:none;transition:opacity .3s ease;
+}
+.drawer-overlay.active{opacity:1;pointer-events:auto;}
+.drawer{
+  position:fixed;top:0;right:-320px;width:300px;height:100%;
+  background:linear-gradient(180deg,var(--bg-elevated),var(--bg));
+  border-left:1px solid var(--panel-border);
+  z-index:201;transition:right .35s cubic-bezier(.2,.9,.3,1);
+  padding:24px 20px;display:flex;flex-direction:column;gap:8px;
+}
+.drawer.active{right:0;}
+.drawer-close{align-self:flex-end;width:36px;height:36px;border-radius:10px;background:var(--panel);border:1px solid var(--panel-border);font-size:18px;}
+.drawer-item{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 12px;border-radius:12px;
+  font-weight:700;font-size:15px;
+  border:1px solid transparent;
+  transition:all .2s ease;
+}
+.drawer-item:hover{background:var(--panel);border-color:var(--panel-border);color:var(--cyan);}
+.drawer-icon{width:20px;text-align:center;}
+
+/* HERO */
+.hero{padding:56px 0 32px;position:relative;}
+.hero-inner{text-align:center;max-width:760px;margin:0 auto;}
+.hero h1{
+  font-family:var(--font-display);
+  font-weight:800;
+  font-size:clamp(30px,6vw,52px);
+  line-height:1.15;
+  margin:16px 0 12px;
+}
+.hero h1 .grad{
+  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--magenta));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{color:var(--text-dim);font-size:16px;line-height:1.9;margin-bottom:26px;}
+.search-bar{
+  display:flex;align-items:center;gap:10px;
+  max-width:560px;margin:0 auto;
+  background:var(--panel);border:1px solid var(--panel-border);
+  border-radius:14px;padding:6px 6px 6px 14px;
+}
+.search-bar input{
+  flex:1;background:none;border:none;color:var(--text);
+  font-family:var(--font-body);font-size:15px;padding:10px 4px;outline:none;
+}
+.search-bar input::placeholder{color:var(--text-dim);}
+.search-bar button{
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  color:#05050d;font-weight:800;font-size:14px;
+  padding:12px 22px;border-radius:10px;white-space:nowrap;
+}
+.cat-strip{
+  display:flex;gap:10px;overflow-x:auto;padding:22px 0 4px;
+  scrollbar-width:none;
+}
+.cat-strip::-webkit-scrollbar{display:none;}
+.cat-pill{
+  flex:0 0 auto;font-family:var(--font-mono);font-size:12px;letter-spacing:1px;
+  padding:9px 16px;border-radius:20px;border:1px solid var(--panel-border);
+  background:var(--panel);color:var(--text-dim);white-space:nowrap;
+  transition:all .2s ease;
+}
+.cat-pill.active,.cat-pill:hover{
+  color:#05050d;border-color:transparent;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+}
+
+/* AD SLOTS */
+.ad-slot{
+  margin:26px auto;max-width:1280px;
+  border:1px dashed rgba(255,255,255,0.12);
+  border-radius:12px;
+  background:rgba(255,255,255,0.02);
+  min-height:100px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  position:relative;
+}
+.ad-slot::before{
+  content:"إعلان";
+  position:absolute;top:6px;right:10px;
+  font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text-dim);
+  opacity:.6;
+}
+.ad-slot ins{width:100%;}
+.ad-slot--header{min-height:90px;}
+.ad-slot--infeed{min-height:140px;margin:34px 0;}
+.ad-slot--sidebar{min-height:600px;position:sticky;top:90px;}
+.ad-slot--ingame-top,.ad-slot--ingame-bottom{min-height:100px;margin:16px 0;}
+
+/* MAIN LAYOUT */
+.main-layout{display:grid;grid-template-columns:1fr;gap:0;}
+@media(min-width:1024px){
+  .main-layout{grid-template-columns:1fr 300px;gap:24px;align-items:start;}
+}
+
+/* GAME GRID */
+.section-title{
+  display:flex;align-items:center;gap:12px;margin:28px 0 18px;
+}
+.section-title h2{font-family:var(--font-display);font-size:22px;font-weight:800;}
+.section-title .line{flex:1;height:1px;background:linear-gradient(90deg,var(--panel-border),transparent);}
+.game-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:16px;
+}
+@media(min-width:640px){.game-grid{grid-template-columns:repeat(3,1fr);}}
+@media(min-width:1024px){.game-grid{grid-template-columns:repeat(4,1fr);}}
+.game-card{
+  background:var(--panel);
+  border:1px solid var(--panel-border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  cursor:pointer;
+  position:relative;
+}
+.game-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(168,85,247,0.5);
+  box-shadow:0 12px 32px rgba(168,85,247,0.25), 0 0 0 1px rgba(6,182,212,0.2);
+}
+.game-thumb{width:100%;aspect-ratio:4/3;object-fit:cover;background:#111;}
+.game-body{padding:12px;}
+.game-cat{margin-bottom:6px;}
+.game-title{font-weight:700;font-size:14px;line-height:1.4;min-height:38px;}
+.game-play{
+  margin-top:10px;width:100%;padding:9px;border-radius:9px;
+  font-size:12px;font-weight:800;text-align:center;
+  background:linear-gradient(90deg,rgba(6,182,212,0.15),rgba(168,85,247,0.15));
+  border:1px solid rgba(6,182,212,0.35);color:var(--cyan);
+  transition:all .2s ease;
+}
+.game-card:hover .game-play{background:linear-gradient(90deg,var(--cyan),var(--purple));color:#05050d;}
+
+.skeleton{
+  background:linear-gradient(90deg,rgba(255,255,255,0.04) 25%,rgba(255,255,255,0.09) 37%,rgba(255,255,255,0.04) 63%);
+  background-size:400% 100%;animation:skeleton-loading 1.4s ease infinite;
+  border-radius:var(--radius);aspect-ratio:4/3;
+}
+@keyframes skeleton-loading{0%{background-position:100% 50%;}100%{background-position:0 50%;}}
+.empty-state{
+  grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-dim);
+}
+
+/* SIDEBAR */
+.sidebar-widget{
+  background:var(--panel);border:1px solid var(--panel-border);
+  border-radius:var(--radius);padding:18px;margin-bottom:18px;
+}
+.sidebar-widget h3{font-family:var(--font-display);font-size:15px;margin-bottom:12px;}
+.mini-game-list{display:flex;flex-direction:column;gap:10px;}
+.mini-game{display:flex;align-items:center;gap:10px;cursor:pointer;padding:6px;border-radius:10px;transition:background .2s ease;}
+.mini-game:hover{background:rgba(255,255,255,0.04);}
+.mini-game img{width:46px;height:46px;border-radius:8px;object-fit:cover;}
+.mini-game span{font-size:12.5px;font-weight:600;line-height:1.4;}
+
+/* CONTACT / SOCIAL QUICK LINKS */
+.quick-links{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.quick-link-item{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  padding:16px 6px;border-radius:16px;
+  background:var(--panel);border:1px solid var(--panel-border);
+  text-align:center;transition:all .25s ease;
+}
+.quick-link-item:hover{
+  transform:translateY(-4px);
+  border-color:rgba(6,182,212,0.45);
+  box-shadow:0 10px 24px rgba(168,85,247,0.25);
+}
+.quick-link-item .ql-label{font-size:12px;font-weight:800;color:var(--text);line-height:1.35;}
+.ql-icon{
+  width:44px;height:44px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.ql-icon.ql-whatsapp{background:#25D366;box-shadow:0 0 16px rgba(37,211,102,0.5);}
+.ql-icon.ql-tiktok{background:#000;border:1px solid rgba(255,255,255,0.15);box-shadow:0 0 16px rgba(255,255,255,0.12);}
+
+/* MODAL */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);
+  z-index:300;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;padding:20px;
+}
+.modal-overlay.active{opacity:1;pointer-events:auto;}
+.modal-box{
+  background:var(--bg-elevated);border:1px solid var(--panel-border);
+  border-radius:20px;max-width:520px;width:100%;max-height:85vh;overflow-y:auto;
+  padding:26px;transform:scale(0.94);transition:transform .25s ease;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.modal-overlay.active .modal-box{transform:scale(1);}
+.modal-box.wide{max-width:640px;}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.modal-head h3{font-family:var(--font-display);font-size:19px;}
+.modal-close{width:34px;height:34px;border-radius:10px;background:var(--panel);border:1px solid var(--panel-border);font-size:18px;}
+.modal-box p{color:var(--text-dim);line-height:2;font-size:14.5px;}
+
+/* GAME DETAIL VIEW */
+.game-view{display:none;}
+.game-view.active{display:block;}
+.catalog-view.hidden{display:none;}
+.gv-back{
+  display:inline-flex;align-items:center;gap:8px;margin:20px 0;
+  font-family:var(--font-mono);font-size:13px;color:var(--cyan);
+  border:1px solid rgba(6,182,212,0.35);padding:9px 16px;border-radius:10px;
+}
+.gv-header{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:6px;}
+.gv-title{font-family:var(--font-display);font-size:clamp(22px,4vw,32px);font-weight:800;margin:6px 0 14px;}
+.gv-gallery{display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-bottom:20px;}
+.gv-gallery img{
+  height:150px;border-radius:12px;flex:0 0 auto;border:1px solid var(--panel-border);
+}
+.gv-frame-wrap{
+  background:#000;border-radius:18px;overflow:hidden;border:1px solid var(--panel-border);
+  aspect-ratio:16/9;position:relative;margin-bottom:18px;
+}
+.gv-frame-wrap iframe{width:100%;height:100%;border:none;}
+.gv-frame-wrap:fullscreen{border-radius:0;aspect-ratio:auto;}
+.gv-frame-wrap:fullscreen iframe{width:100%;height:100%;}
+.gv-play-overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  background:linear-gradient(180deg,rgba(5,5,13,0.4),rgba(5,5,13,0.85));cursor:pointer;
+}
+.gv-play-btn{
+  width:74px;height:74px;border-radius:50%;
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 40px rgba(168,85,247,0.6);
+}
+.gv-desc{
+  background:var(--panel);border:1px solid var(--panel-border);border-radius:16px;
+  padding:20px;line-height:2.1;font-size:14.5px;color:var(--text-dim);
+}
+.gv-desc h4{font-family:var(--font-display);color:var(--text);margin-bottom:10px;font-size:16px;}
+
+/* FOOTER */
+.footer{
+  margin-top:60px;border-top:1px solid var(--panel-border);
+  padding:34px 0 100px;text-align:center;color:var(--text-dim);font-size:13px;
+}
+.footer .brand-name{font-size:16px;display:block;margin-bottom:10px;}
+.back-to-top{
+  position:fixed;bottom:24px;left:20px;width:50px;height:50px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--purple));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(168,85,247,0.45);
+  z-index:150;opacity:0;pointer-events:none;transition:opacity .3s ease,transform .3s ease;
+}
+.back-to-top.show{opacity:1;pointer-events:auto;}
+.back-to-top:hover{transform:translateY(-3px);}
+
+@media(min-width:1024px){
+  .hero{padding:76px 0 40px;}
+}
+
+.gv-play-launch{
+  display:flex;justify-content:center;margin:30px 0 10px;
+}
+.gv-play-launch-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;max-width:360px;padding:18px 26px;border-radius:16px;
+  font-family:var(--font-display);font-weight:800;font-size:17px;color:#05050d;
+  background:linear-gradient(90deg,var(--cyan),var(--purple),var(--magenta),var(--cyan));
+  background-size:300% 100%;
+  animation:gv-btn-gradient 3.5s ease infinite, gv-btn-glow 2s ease-in-out infinite;
+}
+@keyframes gv-btn-gradient{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+@keyframes gv-btn-glow{
+  0%,100%{box-shadow:0 0 18px rgba(168,85,247,0.55), 0 0 34px rgba(6,182,212,0.35);}
+  50%{box-shadow:0 0 32px rgba(168,85,247,0.9), 0 0 55px rgba(6,182,212,0.6);}
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container nav-inner">
+    <div class="brand">
+      <img src="https://k.top4top.io/p_38873f1va1.jpg" alt="Dosha Game Logo">
+      <span class="brand-name">Dosha Game</span>
+    </div>
+    <div class="nav-actions">
+      <button class="search-toggle" id="searchToggle" aria-label="بحث">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+      </button>
+      <button class="menu-toggle" id="menuToggle" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="drawer-overlay" id="drawerOverlay"></div>
+<aside class="drawer" id="drawer">
+  <button class="drawer-close" id="drawerClose">✕</button>
+  <a href="#top" class="drawer-item" data-action="home"><span class="drawer-icon">🏠</span> الرئيسية</a>
+  <a href="#" class="drawer-item" id="aboutBtn"><span class="drawer-icon">ℹ️</span> من نحن</a>
+  <a href="#" class="drawer-item" id="contactBtn"><span class="drawer-icon">📮</span> اتصل بنا وادعمنا</a>
+  <a href="https://www.tiktok.com/@dosha.game?_r=1&_t=ZS-998QUMKq8AL" target="_blank" rel="noopener" class="drawer-item"><span class="drawer-icon">🎵</span> تابعنا على تيك توك</a>
+</aside>
+
+<main id="top">
+  <div class="container">
+    <div class="ad-slot ad-slot--header" id="adHeader"></div>
+  </div>
+
+  <div class="catalog-view" id="catalogView">
+    <div class="hero container">
+      <div class="hero-inner">
+        <span class="eyebrow">DOSHA GAME // FREE BROWSER GAMING</span>
+        <h1>العب <span class="grad">أفضل الألعاب</span> أونلاين مجانًا</h1>
+        <p>مكتبة ضخمة من الألعاب المباشرة على المتصفح، بدون تحميل وبدون تسجيل. اختر لعبتك وابدأ اللعب فورًا.</p>
+        <div class="search-bar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8f8fae" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="searchInput" placeholder="ابحث عن اسم اللعبة...">
+          <button id="searchBtn">بحث</button>
+        </div>
+      </div>
+      <div class="cat-strip" id="catStrip">
+        <button class="cat-pill active" data-cat="الكل">الكل</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="main-layout">
+        <div>
+          <div class="section-title">
+            <h2 id="gridTitle">أحدث الألعاب</h2>
+            <div class="line"></div>
+          </div>
+          <div class="game-grid" id="gameGrid">
+            <div class="skeleton"></div><div class="skeleton"></div>
+            <div class="skeleton"></div><div class="skeleton"></div>
+          </div>
+
+          <div class="ad-slot ad-slot--infeed" id="adInfeed"></div>
+        </div>
+
+        <aside>
+          <div class="ad-slot ad-slot--sidebar" id="adSidebar"></div>
+          <div class="sidebar-widget">
+            <h3>🔥 الأكثر شهرة</h3>
+            <div class="mini-game-list" id="popularList"></div>
+          </div>
+          <div class="sidebar-widget">
+            <h3>📱 تواصل معنا</h3>
+            <div class="quick-links">
+              <a href="https://wa.me/201201377784" target="_blank" rel="noopener" class="quick-link-item">
+                <span class="ql-label">تواصل معانا</span>
+                <span class="ql-icon ql-whatsapp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.51 2 12.04 2m0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.71 8.24-8.26 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28"/></svg></span>
+              </a>
+              <a href="https://whatsapp.com/channel/0029Vb8jzNDEAKW94MlCC53o" target="_blank" rel="noopener" class="quick-link-item">
+                <span class="ql-label">انضم للقناة</span>
+                <span class="ql-icon ql-whatsapp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.51 2 12.04 2m0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.71 8.24-8.26 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28"/></svg></span>
+              </a>
+              <a href="https://www.tiktok.com/@dosha.game?_r=1&_t=ZS-998QUMKq8AL" target="_blank" rel="noopener" class="quick-link-item">
+                <span class="ql-label">تابعنا</span>
+                <span class="ql-icon ql-tiktok"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M16.6 5.82c-1.05-.93-1.72-2.28-1.76-3.82h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.28 0 .55.04.8.11V9.63a6.14 6.14 0 0 0-.8-.05c-3.35 0-6.06 2.71-6.06 6.06s2.71 6.06 6.06 6.06 6.06-2.71 6.06-6.06V9.01a9.3 9.3 0 0 0 5.44 1.74V7.6c-1.28 0-2.46-.42-3.4-1.14a5.94 5.94 0 0 1-.3-.24z"/></svg></span>
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="game-view" id="gameView">
+    <div class="container">
+      <button class="gv-back" id="gvBack">→ العودة إلى الألعاب</button>
+      <div class="gv-header">
+        <span class="hud-chip" id="gvCat">CATEGORY</span>
+      </div>
+      <h1 class="gv-title" id="gvTitle"></h1>
+      <div class="gv-gallery" id="gvGallery"></div>
+
+      <div class="ad-slot ad-slot--ingame-top" id="adInGameTop"></div>
+
+      <div class="gv-desc" id="gvDesc">
+        <h4>عن اللعبة</h4>
+        <div id="gvDescBody"></div>
+      </div>
+
+      <div class="gv-play-launch">
+        <button class="gv-play-launch-btn" id="gvPlayLaunchBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#05050d"><path d="M8 5v14l11-7z"/></svg>
+          العب الآن
+        </button>
+      </div>
+
+      <div class="ad-slot ad-slot--ingame-bottom" id="adInGameBottom"></div>
+      <div style="height:40px"></div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <span class="brand-name">Dosha Game</span>
+  جميع الحقوق محفوظة © Mohamed Mahmoud (Dosha)
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="العودة للأعلى">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#05050d" stroke-width="3"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- About Modal -->
+<div class="modal-overlay" id="aboutModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>من نحن</h3>
+      <button class="modal-close" data-close="aboutModal">✕</button>
+    </div>
+    <p>نحن فريق من مطوري الألعاب، قمنا بتطوير هذا الموقع من أجل زوارنا الكرام. مرحباً بجميع زوار الموقع، نتمنى أن ينال إعجابكم وأن تكونوا على رضا تام عن الخدمة التي نقدمها. تحياتي: Mohamed Mahmoud (Dosha)</p>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal-box wide">
+    <div class="modal-head">
+      <h3>اتصل بنا وادعمنا</h3>
+      <button class="modal-close" data-close="contactModal">✕</button>
+    </div>
+    <div class="quick-links">
+      <a href="https://wa.me/201201377784" target="_blank" rel="noopener" class="quick-link-item">
+        <span class="ql-label">تواصل معانا</span>
+        <span class="ql-icon ql-whatsapp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.51 2 12.04 2m0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.71 8.24-8.26 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28"/></svg></span>
+      </a>
+      <a href="https://whatsapp.com/channel/0029Vb8jzNDEAKW94MlCC53o" target="_blank" rel="noopener" class="quick-link-item">
+        <span class="ql-label">انضم للقناة</span>
+        <span class="ql-icon ql-whatsapp"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.51 2 12.04 2m0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.26-8.24 2.2 0 4.27.86 5.83 2.42a8.18 8.18 0 0 1 2.42 5.83c0 4.55-3.71 8.24-8.26 8.24m4.52-6.17c-.25-.12-1.47-.72-1.69-.81-.23-.08-.4-.12-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.38-1.99-1.22-.74-.65-1.23-1.46-1.38-1.71-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.24 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.28"/></svg></span>
+      </a>
+      <a href="https://www.tiktok.com/@dosha.game?_r=1&_t=ZS-998QUMKq8AL" target="_blank" rel="noopener" class="quick-link-item">
+        <span class="ql-label">تابعنا</span>
+        <span class="ql-icon ql-tiktok"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M16.6 5.82c-1.05-.93-1.72-2.28-1.76-3.82h-3.14v13.66c0 1.6-1.3 2.9-2.9 2.9-1.6 0-2.9-1.3-2.9-2.9s1.3-2.9 2.9-2.9c.28 0 .55.04.8.11V9.63a6.14 6.14 0 0 0-.8-.05c-3.35 0-6.06 2.71-6.06 6.06s2.71 6.06 6.06 6.06 6.06-2.71 6.06-6.06V9.01a9.3 9.3 0 0 0 5.44 1.74V7.6c-1.28 0-2.46-.42-3.4-1.14a5.94 5.94 0 0 1-.3-.24z"/></svg></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Teaser Modal (Step 1) -->
+<div class="modal-overlay" id="teaserModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="teaserTitle"></h3>
+      <button class="modal-close" data-close="teaserModal">✕</button>
+    </div>
+    <img id="teaserImg" style="width:100%;border-radius:14px;margin-bottom:14px;aspect-ratio:16/9;object-fit:cover;" alt="">
+    <span class="hud-chip" id="teaserCat" style="margin-bottom:10px;display:inline-block;"></span>
+    <p id="teaserDesc"></p>
+    <button id="teaserPlayBtn" style="margin-top:16px;width:100%;padding:14px;border-radius:12px;font-weight:800;background:linear-gradient(90deg,var(--cyan),var(--purple));color:#05050d;">قراءة الشرح واللعب</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<script>
+const firebaseConfig = {
+  apiKey: "AIzaSyDN7uLYTFRWBb9x5dTV-bYr6iPA_YLq9VM",
+  authDomain: "dosha-games.firebaseapp.com",
+  databaseURL: "https://dosha-games-default-rtdb.firebaseio.com",
+  projectId: "dosha-games",
+  storageBucket: "dosha-games.firebasestorage.app",
+  messagingSenderId: "584565662439",
+  appId: "1:584565662439:web:775e8d06b3cab9d54bb842",
+  measurementId: "G-18T3S01ZRC"
+};
+
+firebase.initializeApp(firebaseConfig);
+
+const doshaDatabase = firebase.database();
+const doshaGamesRef = doshaDatabase.ref("games");
+</script>
+<script>
+const ADSENSE_CLIENT_ID = "ca-pub-0000000000000000";
+
+const AD_SLOTS = {
+  header: "0000000001",
+  sidebar: "0000000002",
+  infeed: "0000000003",
+  ingameTop: "0000000004",
+  ingameBottom: "0000000005"
+};
+
+let allGames = [];
+let currentCategory = "الكل";
+let currentSearch = "";
+let activeGameId = null;
+
+const gameGrid = document.getElementById("gameGrid");
+const gridTitle = document.getElementById("gridTitle");
+const catStrip = document.getElementById("catStrip");
+const popularList = document.getElementById("popularList");
+const catalogView = document.getElementById("catalogView");
+const gameView = document.getElementById("gameView");
+
+function injectAdSlot(containerId, slotId){
+  const el = document.getElementById(containerId);
+  if(!el) return;
+  el.innerHTML = "";
+  const ins = document.createElement("ins");
+  ins.className = "adsbygoogle";
+  ins.style.display = "block";
+  ins.setAttribute("data-ad-client", ADSENSE_CLIENT_ID);
+  ins.setAttribute("data-ad-slot", slotId);
+  ins.setAttribute("data-ad-format", "auto");
+  ins.setAttribute("data-full-width-responsive", "true");
+  el.appendChild(ins);
+  try{
+    (window.adsbygoogle = window.adsbygoogle || []).push({});
+  }catch(e){}
+}
+
+function initAds(){
+  injectAdSlot("adHeader", AD_SLOTS.header);
+  injectAdSlot("adSidebar", AD_SLOTS.sidebar);
+  injectAdSlot("adInfeed", AD_SLOTS.infeed);
+}
+
+function initInGameAds(){
+  injectAdSlot("adInGameTop", AD_SLOTS.ingameTop);
+  injectAdSlot("adInGameBottom", AD_SLOTS.ingameBottom);
+}
+
+function escapeHtml(str){
+  if(!str) return "";
+  return str
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+function buildCategoryStrip(){
+  const cats = ["الكل", ...new Set(allGames.map(g => g.category).filter(Boolean))];
+  catStrip.innerHTML = "";
+  cats.forEach(cat => {
+    const btn = document.createElement("button");
+    btn.className = "cat-pill" + (cat === currentCategory ? " active" : "");
+    btn.textContent = cat;
+    btn.dataset.cat = cat;
+    btn.addEventListener("click", () => {
+      currentCategory = cat;
+      buildCategoryStrip();
+      renderGrid();
+    });
+    catStrip.appendChild(btn);
+  });
+}
+
+function getFilteredGames(){
+  return allGames.filter(g => {
+    const matchCat = currentCategory === "الكل" || g.category === currentCategory;
+    const matchSearch = !currentSearch || (g.title || "").toLowerCase().includes(currentSearch.toLowerCase());
+    return matchCat && matchSearch;
+  });
+}
+
+function renderGrid(){
+  const filtered = getFilteredGames();
+  gridTitle.textContent = currentSearch ? `نتائج البحث عن "${currentSearch}"` : (currentCategory === "الكل" ? "أحدث الألعاب" : currentCategory);
+
+  if(filtered.length === 0){
+    gameGrid.innerHTML = `<div class="empty-state">لا توجد ألعاب مطابقة حالياً، جرّب كلمة بحث أخرى.</div>`;
+    return;
+  }
+
+  gameGrid.innerHTML = "";
+  filtered.forEach(game => {
+    const card = document.createElement("div");
+    card.className = "game-card";
+    card.innerHTML = `
+      <img class="game-thumb" src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)}" loading="lazy">
+      <div class="game-body">
+        <span class="hud-chip game-cat">${escapeHtml(game.category || "لعبة")}</span>
+        <div class="game-title">${escapeHtml(game.title)}</div>
+        <div class="game-play">قراءة الشرح واللعب</div>
+      </div>
+    `;
+    card.addEventListener("click", () => openTeaser(game.id));
+    gameGrid.appendChild(card);
+  });
+}
+
+function renderPopular(){
+  const popular = allGames.slice(0, 6);
+  popularList.innerHTML = "";
+  if(popular.length === 0){
+    popularList.innerHTML = `<span style="color:var(--text-dim);font-size:13px;">لا توجد ألعاب بعد</span>`;
+    return;
+  }
+  popular.forEach(game => {
+    const item = document.createElement("div");
+    item.className = "mini-game";
+    item.innerHTML = `
+      <img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)}" loading="lazy">
+      <span>${escapeHtml(game.title)}</span>
+    `;
+    item.addEventListener("click", () => openTeaser(game.id));
+    popularList.appendChild(item);
+  });
+}
+
+function openTeaser(gameId){
+  const game = allGames.find(g => g.id === gameId);
+  if(!game) return;
+  activeGameId = gameId;
+  document.getElementById("teaserTitle").textContent = game.title;
+  document.getElementById("teaserImg").src = game.cover || "";
+  document.getElementById("teaserCat").textContent = game.category || "لعبة";
+  document.getElementById("teaserDesc").textContent = game.teaser || "";
+  openModal("teaserModal");
+}
+
+function openGameView(gameId){
+  const game = allGames.find(g => g.id === gameId);
+  if(!game) return;
+
+  closeModal("teaserModal");
+  catalogView.classList.add("hidden");
+  gameView.classList.add("active");
+  window.scrollTo({top:0, behavior:"instant"});
+
+  document.getElementById("gvCat").textContent = game.category || "لعبة";
+  document.getElementById("gvTitle").textContent = game.title;
+
+  const gallery = document.getElementById("gvGallery");
+  gallery.innerHTML = "";
+  const shots = (game.screenshots || "").split(",").map(s => s.trim()).filter(Boolean);
+  shots.forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = game.title;
+    img.loading = "lazy";
+    gallery.appendChild(img);
+  });
+
+  document.getElementById("gvDescBody").innerHTML = game.description || "";
+
+  const playLaunchBtn = document.getElementById("gvPlayLaunchBtn");
+  playLaunchBtn.onclick = () => {
+    window.open(game.iframeUrl, "_blank");
+  };
+
+  history.pushState({gameId}, "", `#game/${gameId}`);
+  initInGameAds();
+}
+
+function closeGameView(){
+  gameView.classList.remove("active");
+  catalogView.classList.remove("hidden");
+  activeGameId = null;
+  history.pushState({}, "", "#top");
+  window.scrollTo({top:0, behavior:"instant"});
+}
+
+function openModal(id){
+  document.getElementById(id).classList.add("active");
+}
+function closeModal(id){
+  document.getElementById(id).classList.remove("active");
+}
+
+function loadGames(){
+  doshaGamesRef.on("value", snapshot => {
+    const data = snapshot.val() || {};
+    allGames = Object.keys(data).map(id => ({id, ...data[id]})).reverse();
+    buildCategoryStrip();
+    renderGrid();
+    renderPopular();
+  }, error => {
+    gameGrid.innerHTML = `<div class="empty-state">تعذر تحميل الألعاب حالياً، حاول لاحقًا.</div>`;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initAds();
+  loadGames();
+
+  const menuToggle = document.getElementById("menuToggle");
+  const drawer = document.getElementById("drawer");
+  const drawerOverlay = document.getElementById("drawerOverlay");
+  const drawerClose = document.getElementById("drawerClose");
+
+  function openDrawer(){ drawer.classList.add("active"); drawerOverlay.classList.add("active"); }
+  function closeDrawer(){ drawer.classList.remove("active"); drawerOverlay.classList.remove("active"); }
+
+  menuToggle.addEventListener("click", openDrawer);
+  drawerClose.addEventListener("click", closeDrawer);
+  drawerOverlay.addEventListener("click", closeDrawer);
+
+  document.getElementById("aboutBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("aboutModal"); });
+  document.getElementById("contactBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("contactModal"); });
+  document.querySelector('[data-action="home"]').addEventListener("click", () => { closeDrawer(); closeGameView(); });
+
+  document.querySelectorAll(".modal-close").forEach(btn => {
+    btn.addEventListener("click", () => closeModal(btn.dataset.close));
+  });
+  document.querySelectorAll(".modal-overlay").forEach(overlay => {
+    overlay.addEventListener("click", (e) => {
+      if(e.target === overlay) overlay.classList.remove("active");
+    });
+  });
+
+  document.getElementById("teaserPlayBtn").addEventListener("click", () => {
+    if(activeGameId) openGameView(activeGameId);
+  });
+
+  document.getElementById("gvBack").addEventListener("click", closeGameView);
+
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  function runSearch(){
+    currentSearch = searchInput.value.trim();
+    renderGrid();
+    document.getElementById("gameGrid").scrollIntoView({behavior:"smooth", block:"start"});
+  }
+  searchBtn.addEventListener("click", runSearch);
+  searchInput.addEventListener("keydown", (e) => { if(e.key === "Enter") runSearch(); });
+
+  document.getElementById("searchToggle").addEventListener("click", () => {
+    document.querySelector(".hero").scrollIntoView({behavior:"smooth"});
+    searchInput.focus();
+  });
+
+  const backToTop = document.getElementById("backToTop");
+  window.addEventListener("scroll", () => {
+    if(window.scrollY > 400) backToTop.classList.add("show");
+    else backToTop.classList.remove("show");
+  });
+  backToTop.addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+  window.addEventListener("popstate", () => {
+    if(!location.hash.startsWith("#game/")) closeGameView();
+  });
+});
+
+</script>
+</body>
+</html>
