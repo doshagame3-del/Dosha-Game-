@@ -1351,6 +1351,7 @@
         let selectedTrack = null;
         let timestampStart = 0;
         let currentDynamicSpeed = 3.5;
+        let lastFrameTimestamp = null; // لحساب فرق الوقت الحقيقي بين كل فريم والتاني (frame-rate independence)
         let activeHoldTargets = [];
         let lastAutoSpawnTime = 0; 
         let autoSpawnInterval = 1.2;
@@ -1361,6 +1362,8 @@
         let backgroundParticles = [];
         let hitParticles = []; 
         let laneFlashes = [0, 0, 0, 0]; 
+        // وقت آخر دوسة صح اتسجلت في كل مسار - عشان نمتص "اللمسة الشبح" (ghost touch)
+        let laneLastHitTime = [-9999, -9999, -9999, -9999];
         let discoHue = 0;
         let isTrainingMode = false;
         let currentCombo = 0;
@@ -1632,6 +1635,7 @@
             canvas.width = container.clientWidth;
             canvas.height = container.clientHeight;
             initBackgroundParticles();
+            lastFrameTimestamp = null; // نضمن إن أول فريم في الجولة يبدأ بمعامل تصحيح = 1 من غير أي قفزة
             audioNode.play().then(() => {
                 isEngineRunning = true;
                 timestampStart = performance.now();
@@ -1654,6 +1658,7 @@
             activeHoldTargets = [];
             hitParticles = [];
             laneFlashes = [0, 0, 0, 0];
+            laneLastHitTime = [-9999, -9999, -9999, -9999];
 
             let parsedSpeed = parseFloat(selectedTrack.baseSpeed || selectedTrack.speed || selectedTrack.Speed);
             currentDynamicSpeed = isNaN(parsedSpeed) ? 3.5 : parsedSpeed;
@@ -1718,6 +1723,28 @@
 
         function renderLoop() {
             if (!isEngineRunning) return;
+            // ============================================================
+            // المشكلة اللي كانت مش طبيعية: سرعة حركة النوتة (tile.y) كانت
+            // بتتزاد بمقدار ثابت "لكل فريم" (currentDynamicSpeed) مش "لكل ثانية".
+            // ده معناه إن سرعة النوتة الفعلية على الشاشة كانت مرتبطة بمعدل
+            // تحديث الشاشة (FPS) بتاع الموبايل نفسه: شاشة 90 أو 120 هرتز
+            // (شايعة جداً دلوقتي) بترسم فريمات أكتر من شاشة 60 هرتز في نفس
+            // الثانية، فالنوتة كانت بتوصل لمنطقة الضرب أسرع أو أبطأ من توقيت
+            // الصوت الفعلي حسب جهاز كل شخص - وده اللي بيدي إحساس "مش طبيعي"
+            // وغير ثابت، رغم إن كل حاجة تانية (منطقة السماحية) سليمة 100%.
+            // الحل: نحسب الفرق الزمني الحقيقي (deltaTime) بين كل فريم والتاني،
+            // ونستخدمه كمعامل تصحيح (frameScale) بحيث سرعة النوتة تفضل ثابتة
+            // بالنسبة للزمن الحقيقي (وبالتالي متزامنة مع الصوت) على أي جهاز
+            // وأي معدل فريمات، مع الحفاظ الكامل على نفس الإحساس والسرعة
+            // المعايرة عليها أصلاً عند 60 فريم/ثانية.
+            const nowTs = performance.now();
+            let frameScale = 1;
+            if (lastFrameTimestamp !== null) {
+                let dt = (nowTs - lastFrameTimestamp) / 1000;
+                frameScale = dt * 60;
+                frameScale = Math.max(0.2, Math.min(3, frameScale)); // حماية من قفزة ضخمة لو التبويب رجع من الخلفية
+            }
+            lastFrameTimestamp = nowTs;
             const laneWidth = canvas.width / 4;
             let currentTimeElapsed = (performance.now() - timestampStart) / 1000;
             if (backgroundImageObj && backgroundImageObj.complete) {
@@ -1774,7 +1801,7 @@
                     else if (selectedTrack.theme === "diamond") { ctx.fillStyle = `rgba(125, 211, 252, ${laneFlashes[i] * 0.4})`; }
                     else if (selectedTrack.theme === "insane") { ctx.fillStyle = `rgba(255, 0, 0, ${laneFlashes[i] * 0.35})`; }
                     ctx.fillRect(i * laneWidth, 0, laneWidth, canvas.height);
-                    laneFlashes[i] -= 0.06;
+                    laneFlashes[i] -= 0.06 * frameScale;
                 }
             }
             for (let p of backgroundParticles) {
@@ -1793,7 +1820,7 @@
                 } else {
                     ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
                 }
-                p.y += p.speed * (selectedTrack.theme === "disco" || selectedTrack.theme === "insane" || selectedTrack.theme === "diamond" ? 1.6 : 1);
+                p.y += p.speed * (selectedTrack.theme === "disco" || selectedTrack.theme === "insane" || selectedTrack.theme === "diamond" ? 1.6 : 1) * frameScale;
                 if (p.y > canvas.height) { p.y = -p.radius; p.x = Math.random() * canvas.width; }
             }
             if (trackDuration > 0 && currentTimeElapsed < (trackDuration - 3.5)) {
@@ -1818,7 +1845,7 @@
             for (let i = activeHoldTargets.length - 1; i >= 0; i--) {
                 let target = activeHoldTargets[i];
                 if (target.holdProgress < target.h) {
-                    target.holdProgress += currentDynamicSpeed;
+                    target.holdProgress += currentDynamicSpeed * frameScale;
                     let pointsPerTick = (selectedTrack.theme === "disco" || selectedTrack.theme === "rap" || selectedTrack.theme === "mediumpro" || selectedTrack.theme === "diamond") ? 2 : 1; 
                     currentScore += pointsPerTick * currentMultiplier;
                     document.getElementById('score-display').textContent = currentScore;
@@ -1833,7 +1860,7 @@
             
             for (let i = activeTiles.length - 1; i >= 0; i--) {
                 let tile = activeTiles[i];
-                tile.y += currentDynamicSpeed;
+                tile.y += currentDynamicSpeed * frameScale;
                 const tileColor = selectedTrack.customColors?.tileColor;
                 
                 if (selectedTrack.theme === "easy") {
@@ -1953,7 +1980,7 @@
                 }
             }
             for (let i = hitParticles.length - 1; i >= 0; i--) {
-                let p = hitParticles[i]; p.x += p.vx; p.y += p.vy; p.alpha -= p.decay;
+                let p = hitParticles[i]; p.x += p.vx * frameScale; p.y += p.vy * frameScale; p.alpha -= p.decay * frameScale;
                 if (p.alpha <= 0) { hitParticles.splice(i, 1); } 
                 else {
                     ctx.save(); ctx.globalAlpha = p.alpha; ctx.fillStyle = p.color;
@@ -1962,7 +1989,7 @@
                 }
             }
             if (isFinishLineSpawned) {
-                finishLineY += currentDynamicSpeed;
+                finishLineY += currentDynamicSpeed * frameScale;
                 let gradient = ctx.createLinearGradient(0, finishLineY, canvas.width, finishLineY + 25);
                 if (selectedTrack.theme === "insane") {
                     gradient.addColorStop(0, '#ff0000'); gradient.addColorStop(0.5, '#550000'); gradient.addColorStop(1, '#ff0033');
@@ -2062,6 +2089,7 @@
                             tile.isHit = true; 
                             calculateHitAccuracyAndScore(tile, posY, posX);
                             laneFlashes[targetLane] = 1.0; 
+                            laneLastHitTime[targetLane] = performance.now();
                             isHitRegistered = true; 
                             break;
                         } else if (tile.type === 'hold') {
@@ -2073,6 +2101,7 @@
                             statsTracker.perfect++; 
                             displayAccuracyRating("PERFECT");
                             laneFlashes[targetLane] = 1.0; 
+                            laneLastHitTime[targetLane] = performance.now();
                             isHitRegistered = true; 
                             break;
                         }
@@ -2082,7 +2111,13 @@
 
             if (!isHitRegistered) {
                 let isClickingExistingHold = activeHoldTargets.some(t => t.lane === targetLane);
-                if (!isClickingExistingHold && !isTrainingMode) {
+                // حماية "اللمسة الشبح" (ghost touch): بعض شاشات اللمس بتسجل ضغطة واحدة فعلياً
+                // كـ touchstart مرتين قريبين جداً من بعض - خصوصاً لو الصباع اتحرك شوية وهو
+                // مستريح على نوتة صغيرة (بيغير مساحة التلامس، فبعض الأجهزة بتحس إنها لمسة
+                // جديدة). لو المسار ده اتسجلت فيه دوسة صح قبل كده بجزء بسيط من الثانية،
+                // نتجاهل اللمسة دي بهدوء بدل ما نحسبها "ضغطة في الهواء" ونخسّر اللعبة ظلماً.
+                let justHitThisLane = (performance.now() - laneLastHitTime[targetLane]) < 140;
+                if (!isClickingExistingHold && !justHitThisLane && !isTrainingMode) {
                     statsTracker.miss++; currentCombo = 0; currentMultiplier = 1; displayAccuracyRating("MISS");
                     terminateGame(false, "لمسة في الهواء! ضغطت بعيداً عن محيط البلاطة الموسيقية 💥");
                 }
