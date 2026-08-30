@@ -477,14 +477,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 
 <main id="top">
   <div class="container">
-    <div class="ad-slot ad-slot--header" id="adHeader">
-      <div class="ad-mobile-only">
-        <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:320px;height:50px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"c6bc961f8e38913e556072da0b67404c","format":"iframe","height":50,"width":320,"params":{}};</script><script src="https://www.highrevenueformat.com/c6bc961f8e38913e556072da0b67404c/invoke.js"></script></body></html>'></iframe>
-      </div>
-      <div class="ad-desktop-only">
-        <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:728px;height:90px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"6b576b04c80b433c1ad7d465f6049e42","format":"iframe","height":90,"width":728,"params":{}};</script><script src="https://www.highrevenueformat.com/6b576b04c80b433c1ad7d465f6049e42/invoke.js"></script></body></html>'></iframe>
-      </div>
-    </div>
+    <div class="ad-slot ad-slot--header" id="adHeader"></div>
   </div>
 
   <div class="catalog-view" id="catalogView">
@@ -516,15 +509,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
             <div class="skeleton"></div><div class="skeleton"></div>
           </div>
 
-          <div class="ad-slot ad-slot--infeed" id="adInfeed">
-            <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:300px;height:250px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"10e2124a7648c0c9d48beeba0db92238","format":"iframe","height":250,"width":300,"params":{}};</script><script src="https://www.highrevenueformat.com/10e2124a7648c0c9d48beeba0db92238/invoke.js"></script></body></html>'></iframe>
-          </div>
+          <div class="ad-slot ad-slot--infeed" id="adInfeed"></div>
         </div>
 
         <aside>
-          <div class="ad-slot ad-slot--sidebar" id="adSidebar">
-            <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:160px;height:600px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"8b34ed166ef1b1c4dff03d7ac45f551d","format":"iframe","height":600,"width":160,"params":{}};</script><script src="https://www.highrevenueformat.com/8b34ed166ef1b1c4dff03d7ac45f551d/invoke.js"></script></body></html>'></iframe>
-          </div>
+          <div class="ad-slot ad-slot--sidebar" id="adSidebar"></div>
           <div class="sidebar-widget">
             <h3>🔥 الأكثر شهرة</h3>
             <div class="mini-game-list" id="popularList"></div>
@@ -568,9 +557,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
       <h1 class="gv-title" id="gvTitle"></h1>
       <div class="gv-gallery" id="gvGallery"></div>
 
-      <div class="ad-slot ad-slot--ingame-top" id="adInGameTop">
-        <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:300px;height:250px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"10e2124a7648c0c9d48beeba0db92238","format":"iframe","height":250,"width":300,"params":{}};</script><script src="https://www.highrevenueformat.com/10e2124a7648c0c9d48beeba0db92238/invoke.js"></script></body></html>'></iframe>
-      </div>
+      <div class="ad-slot ad-slot--ingame-top" id="adInGameTop"></div>
 
       <div class="gv-desc" id="gvDesc">
         <h4>عن اللعبة</h4>
@@ -584,9 +571,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
         </button>
       </div>
 
-      <div class="ad-slot ad-slot--ingame-bottom" id="adInGameBottom">
-        <iframe sandbox="allow-scripts allow-same-origin allow-popups" style="border:none;width:300px;height:250px;max-width:100%;" srcdoc='<!DOCTYPE html><html><body style="margin:0;background:transparent;"><script>atOptions={"key":"10e2124a7648c0c9d48beeba0db92238","format":"iframe","height":250,"width":300,"params":{}};</script><script src="https://www.highrevenueformat.com/10e2124a7648c0c9d48beeba0db92238/invoke.js"></script></body></html>'></iframe>
-      </div>
+      <div class="ad-slot ad-slot--ingame-bottom" id="adInGameBottom"></div>
       <div style="height:40px"></div>
     </div>
   </div>
@@ -849,68 +834,14 @@ function openGameView(gameId){
 
   document.getElementById("gvDescBody").innerHTML = game.description || "";
 
-  const INTERSTITIAL_AD_CONFIGS = [
-    {key:'10e2124a7648c0c9d48beeba0db92238', w:300, h:250},
-    {key:'6b576b04c80b433c1ad7d465f6049e42', w:728, h:90},
-    {key:'10e2124a7648c0c9d48beeba0db92238', w:300, h:250},
-    {key:'8b34ed166ef1b1c4dff03d7ac45f551d', w:160, h:600},
-    {key:'c6bc961f8e38913e556072da0b67404c', w:320, h:50},
-    {key:'10e2124a7648c0c9d48beeba0db92238', w:300, h:250},
-    {key:'6b576b04c80b433c1ad7d465f6049e42', w:728, h:90},
-    {key:'10e2124a7648c0c9d48beeba0db92238', w:300, h:250},
-    {key:'8b34ed166ef1b1c4dff03d7ac45f551d', w:160, h:600},
-    {key:'c6bc961f8e38913e556072da0b67404c', w:320, h:50}
-  ];
-
-  function renderFreshInterstitialAds(){
-    const container = document.getElementById("interstitialAdsContainer");
-    container.innerHTML = "";
-    INTERSTITIAL_AD_CONFIGS.forEach(cfg => {
-      const slot = document.createElement("div");
-      slot.className = "ad-slot";
-      const frame = document.createElement("iframe");
-      frame.setAttribute("sandbox", "allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox");
-      frame.style.width = cfg.w + "px";
-      frame.style.height = cfg.h + "px";
-      frame.style.maxWidth = "100%";
-      frame.style.border = "none";
-      slot.appendChild(frame);
-      container.appendChild(slot);
-      const doc = frame.contentWindow.document;
-      doc.open();
-      doc.write(`<!DOCTYPE html><html><head><style>body{margin:0;background:transparent;}</style></head><body>
-        <script>
-          atOptions = {'key':'${cfg.key}','format':'iframe','height':${cfg.h},'width':${cfg.w},'params':{}};
-        <\/script>
-        <script src="https://www.highrevenueformat.com/${cfg.key}/invoke.js"><\/script>
-      </body></html>`);
-      doc.close();
-    });
-  }
-
   const playLaunchBtn = document.getElementById("gvPlayLaunchBtn");
   playLaunchBtn.onclick = () => {
-    const overlay = document.getElementById("interstitialOverlay");
-    const timerEl = document.getElementById("interstitialTimer");
-    renderFreshInterstitialAds();
-    overlay.classList.add("active");
+    const fsPlay = document.getElementById("fullscreenPlay");
+    const fsFrame = document.getElementById("fullscreenPlayFrame");
+    fsFrame.src = game.iframeUrl;
+    fsPlay.classList.add("active");
     window.scrollTo({top:0, behavior:"instant"});
-    let seconds = 5;
-    timerEl.textContent = `جاري تجهيز اللعبة... ${seconds}`;
-    const countdown = setInterval(() => {
-      seconds--;
-      if(seconds > 0){
-        timerEl.textContent = `جاري تجهيز اللعبة... ${seconds}`;
-      }else{
-        clearInterval(countdown);
-        overlay.classList.remove("active");
-        const fsPlay = document.getElementById("fullscreenPlay");
-        const fsFrame = document.getElementById("fullscreenPlayFrame");
-        fsFrame.src = game.iframeUrl;
-        fsPlay.classList.add("active");
-        history.pushState({playing:gameId}, "", `#play/${gameId}`);
-      }
-    }, 1000);
+    history.pushState({playing:gameId}, "", `#play/${gameId}`);
   };
 
   history.pushState({gameId}, "", `#game/${gameId}`);
