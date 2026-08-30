@@ -468,10 +468,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 <aside class="drawer" id="drawer">
   <button class="drawer-close" id="drawerClose">✕</button>
   <a href="#top" class="drawer-item" data-action="home"><span class="drawer-icon">🏠</span> الرئيسية</a>
-  <a href="#" class="drawer-item" id="aboutBtn"><span class="drawer-icon">ℹ️</span> من نحن</a>
+  <a href="https://doshagame3-del.github.io/Dosha-Game-/about.html" class="drawer-item"><span class="drawer-icon">ℹ️</span> من نحن</a>
   <a href="#" class="drawer-item" id="contactBtn"><span class="drawer-icon">📮</span> اتصل بنا وادعمنا</a>
-  <a href="#" class="drawer-item" id="privacyBtn"><span class="drawer-icon">🔒</span> سياسة الخصوصية</a>
-  <a href="#" class="drawer-item" id="termsBtn"><span class="drawer-icon">📜</span> الشروط والأحكام</a>
+  <a href="https://doshagame3-del.github.io/Dosha-Game-/privacy-policy.html" class="drawer-item"><span class="drawer-icon">🔒</span> سياسة الخصوصية</a>
+  <a href="https://doshagame3-del.github.io/Dosha-Game-/terms.html" class="drawer-item"><span class="drawer-icon">📜</span> الشروط والأحكام</a>
   <a href="https://www.tiktok.com/@dosha.game?_r=1&_t=ZS-998QUMKq8AL" target="_blank" rel="noopener" class="drawer-item"><span class="drawer-icon">🎵</span> تابعنا على تيك توك</a>
 </aside>
 
@@ -619,8 +619,8 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   <span class="brand-name">Dosha Game</span>
   جميع الحقوق محفوظة © Mohamed Mahmoud (Dosha)
   <div class="footer-links">
-    <a href="#" id="footerPrivacyBtn">سياسة الخصوصية</a>
-    <a href="#" id="footerTermsBtn">الشروط والأحكام</a>
+    <a href="https://doshagame3-del.github.io/Dosha-Game-/privacy-policy.html">سياسة الخصوصية</a>
+    <a href="https://doshagame3-del.github.io/Dosha-Game-/terms.html">الشروط والأحكام</a>
   </div>
 </footer>
 
@@ -933,12 +933,7 @@ document.addEventListener("DOMContentLoaded", () => {
   drawerClose.addEventListener("click", closeDrawer);
   drawerOverlay.addEventListener("click", closeDrawer);
 
-  document.getElementById("aboutBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("aboutModal"); });
   document.getElementById("contactBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("contactModal"); });
-  document.getElementById("privacyBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("privacyModal"); });
-  document.getElementById("termsBtn").addEventListener("click", (e) => { e.preventDefault(); closeDrawer(); openModal("termsModal"); });
-  document.getElementById("footerPrivacyBtn").addEventListener("click", (e) => { e.preventDefault(); openModal("privacyModal"); });
-  document.getElementById("footerTermsBtn").addEventListener("click", (e) => { e.preventDefault(); openModal("termsModal"); });
   document.querySelector('[data-action="home"]').addEventListener("click", () => { closeDrawer(); closeGameView(); });
 
   document.querySelectorAll(".modal-close").forEach(btn => {
